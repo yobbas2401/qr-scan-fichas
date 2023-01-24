@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.108.0">
+  <title>Escanea tu ficha</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+  <link href="plugin/bootstrap.min.css" rel="stylesheet">
+  <link href="plugin/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <script src="plugin/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="js/llqrcode.js"></script>
+  <script type="text/javascript" src="js/webqr1.js"></script>
+   <!-- Custom styles for this template -->
+  
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/videostyle.css" rel="stylesheet" />
+  <link href="static\plugin\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+  <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
+  <link href="static\plugin\et-line\style.css" rel="stylesheet">
+  <link href="static\plugin\themify-icons\themify-icons.css" rel="stylesheet">
+  <link href="static\plugin\owl-carousel\css\owl.carousel.min.css" rel="stylesheet">
+  <link href="static\plugin\magnific\magnific-popup.css" rel="stylesheet">
+  <link href="static\css\style.css" rel="stylesheet">
+  <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
+<link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
+<script src="d3.v3.min.js"></script>
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="98">
+  <div id="loading">
+     <div class="load-circle"><span class="one"></span></div>
+   </div>
+   <header>
+     <nav class="navbar header-nav navbar-expand-lg">
+       <div class="container">
+         <a class="navbar-brand" href="#">
+           <img class="light-logo" src="static\img\logo-light.svg" title="" alt="">
+           <img class="dark-logo" src="static\img\logo.svg" title="" alt="">
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+             <span></span>
+             <span></span>
+             <span></span>
+         </button>
+         <div class="collapse navbar-collapse justify-content-end" id="navbar">
+           <ul class="navbar-nav ml-auto align-items-center">
+             <li><a class="nav-link" href="login.html">Ingresar otra ficha</a></li>
+             <li><a class="nav-link" href="#contact">Contacto</a></li>
+           </ul>
+         </div>
+       </div>
+     </nav> 
+   </header>
+   <main>
+     <section id="home" class="home-banner-03 theme-bg bg-effect-box">
+       <div class="bg-effect bg-cover" style="background-image: url(static/img/banner-effect-6.svg);"></div>
+       <div id="particles_effect" class="particles-effect"></div>
+       <div class="container">
+         <div class="row align-items-center justify-content-center p-30px-tb sm-p-60px-b">
+           <div class="col-lg-5 md-p-30px-tb">
+             <div class="card border-dark mb-3" style="margin-top: 30px;">
+              <div class="card-header"style="background: #000000ad;"><h5 class="card-title" style="font-size: 15px;"> <i class="bi-qr-code-scan"></i> Escanea el QR para ingresar</h5>
+                </div>
+              <div class="card-body">
+                <center>
+                  <div id="main">
+                    <div class="qr-scanner"id="mainbody" style="display: inline;">
+                      
+                      <div class="camera" id="outdiv" >
+                        <video id="v" autoplay=""></video>
+                      </div>
+                      
+                      <div class="box">
+                            <div class="line"></div>
+                            
+                            <div class="angle"></div>
+                      </div>
+                      
+                      <div class="container">
+                        <div class="col" style="top: 14px ;">
+                          <div class="btn btn-success" id="reload" onclick="location.reload();">
+                            <i class="bi bi-camera-fill">  </i> Cambiar camara
+                          </div>
+                        </div>
+                        <div class="col" style="top: 14px ;">
+                          <div class="btn btn-success" id="reload" onclick="location.reload();">
+                            <i class="bi bi-camera-fill">  </i> Volver a ficha
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                </center>
+              </div>
+          </div>
+          <canvas  style="display: none; width:800 px; height: 600px;" id="qr-canvas" width="800" height="600"></canvas>
+    <script type="text/javascript">load();</script>
+                 
+                 <div class="card border-dark mb-3">
+                   <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  PRECIOS</h5></div>
+                   <div class="card-body"style="padding: 1px;">
+                     <table class="table" id="paketwifi">
+                 
+                       <thead class="table-dark">
+                       <tr>
+                         <th scope="col">Ficha</th>
+                         <th scope="col">Tiempo</th>
+                         <th scope="col">Precio</th>
+                       </tr>
+                     </thead>
+                     <tbody class="tablebody">
+                       <script type="text/javascript" charset="utf-8">
+                         d3.text("paket-wifi.csv", function(data) {
+                             var parsedCSV = d3.csv.parseRows(data);
+             
+                             var container = d3.select("tbody.tablebody")
+             
+                                 .selectAll("tr")
+                                     .data(parsedCSV).enter()
+                                     .append("tr")
+             
+                                 .selectAll("td")
+                                     .data(function(d) { return d; }).enter()
+                                     .append("td")
+                                     .text(function(d) { return d; });
+                         });
+                   </script>
+                   </tbody>
+                   </table>
+         
+                   </div>
+         
+                 </div>
+               
+                 <div class="card border-dark mb-3">
+                   <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  PUNTO DE VENTA</h5>
+                     </div>
+                   <div class="card-body" style="padding: 3px;">
+                     <p class="card-text"style="color: aliceblue; font-family: monospace;font-weight: 900;">En el domicilio de la señora Yolanda Reyes Miguel</p>
+                   </div>
+                 </div>
+           </div> 
+           <div class="col-lg-7 text-center p-50px-l">
+             <img src="static\img\home-banner-7.svg" title="" alt="">
+           </div>
+         </div> 
+       </div>
+     </section>
+   
+   <section id="contact" class="section">
+     <div class="container">
+       <div class="row m-45px-b sm-m-25px-b">
+         <div class="col-lg-5 col-md-10">
+           <div class="section-title-01">
+             <h2 class="dark-color font-alt">Contacto</h2>
+           </div>
+         </div>
+       </div>
+   
+       <div class="row justify-content-center">
+         <div class="col-lg-8 md-m-30px-b">
+           <div class="contact-form">
+             <h4 class="dark-color font-alt m-30px-b">Para mas información envíanos un mensaje</h4>
+             <form id="contactform" class="contactform" method="post">
+               <div class="row">
+                 <div class="col-md-6">
+                   <div class="form-group">
+                     <input id="name" name="name" type="text" placeholder="Nombre" class="form-control1"
+                       required="">
+                     <span class="input-focus-effect theme-bg"></span>
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                   <div class="form-group">
+                     <input id="email" type="email" placeholder="Telefono" name="phone" class="form-control1"
+                       required="">
+                     <span class="input-focus-effect theme-bg"></span>
+                   </div>
+                 </div>
+                 <div class="col-md-12">
+                   <div class="form-group">
+                     <textarea id="message" placeholder="Hola.. estoy interesado en uno de sus servicios..."
+                       name="message" class="form-control1" required=""></textarea>
+                     <span class="input-focus-effect theme-bg"></span>
+                   </div>
+                 </div>
+                 <div class="col-md-12">
+                   <div class="send">
+                     <button id="sendbttn" class="btn btn-theme" type="submit" name="send"> Enviar Mensaje </button>
+                   </div>
+                   <span class="output_message"></span>
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+         <div class="col-lg-4">
+           <div class="contact-info">
+             <i class="theme-color bi bi-geo-alt-fill"></i>
+             <h6 class="dark-color font-alt" id="ventafichas"> Centro de servicio y venta de fichas</h6>
+             <p>A un lado de la cantina de karina, en el domicilio de la sra Yolanda</p>
+           </div>
+           <div class="contact-info">
+             <i class="theme-color bi bi-whatsapp"></i>
+             <h6 class="dark-color font-alt">Whatsapp</h6>
+             <p>9211987403 y 9514487509</p>
+           </div>
+           <div class="contact-info">
+             <i class="theme-color bi bi-envelope-at-fill"></i>
+             <h6 class="dark-color font-alt">Correo Electronico</h6>
+             <p>proyectos2018mecatronica@gmail.com</p>
+           </div>
+         </div>
+       </div>
+   
+   
+     </div>
+     <script>
+   
+       var formulariowtsp = document.getElementById('contactform');
+     
+       var sendbttn = document.querySelector('#sendbttn');
+     
+     
+     
+       sendbttn.addEventListener('click', EnviarMensaje)
+     
+       function EnviarMensaje() {
+     
+     
+         let name = document.querySelector('#name').value;
+         let mensaje = document.querySelector('#message').value;
+     
+         let url = "https://api.whatsapp.com/send?phone=529211987403&text=Nombre: %0A" + name + "%0A%0AMensaje: %0A" + mensaje + "%0A";
+         window.open(url);
+     
+       }
+     
+     </script>
+   </section>
+<!-- HASTA AQUI TERMINA LAS SECCIONES-->
+
+
+   </main>
+   <footer class="footer footer-dark">
+     <div class="footer-copy">
+       <div class="row">
+         <div class="col-12">
+           <p>All © GeovaniV.V</p>
+         </div>
+       </div> 
+     </div>
+   </footer>
+   
+   <script src="static\js\jquery-3.2.1.min.js"></script>
+   <script src="static\js\jquery-migrate-3.0.0.min.js"></script>
+   <script src="static\plugin\appear\jquery.appear.js"></script>
+   <script src="static\plugin\bootstrap\js\popper.min.js"></script>
+   <script src="static\plugin\bootstrap\js\bootstrap.js"></script>
+   <script src="static\plugin\particles\particles.min.js"></script>
+   <script src="static\plugin\particles\particles-app.js"></script>
+   <script src="static\js\jquery.parallax-scroll.js"></script>
+   <script src="static\js\custom.js"></script>
+
+   $(if chap-id)
+   <script type="text/javascript" src="md5.js"></script>
+   <script type="text/javascript">
+       $('#loginForm').submit(function () {
+           var password = $('#inputPassword');
+           password.val(hexMD5('$(chap-id)' + password.val() + '$(chap-challenge)'));
+       });
+   </script>
+   $(endif)
+   <script>
+     $("#menu-toggle").click(function (e) {
+         e.preventDefault();
+     $("#wrapper").toggleClass("toggled");
+     });
+   </script>
+   <script type="text/javascript">
+   <!--
+     document.loginForm.username.focus();
+   -->
+   </script>
+
+ </body>
+</html>

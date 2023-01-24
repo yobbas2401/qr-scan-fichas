@@ -1,0 +1,78 @@
+::selection {
+  background-color:#eb858e;
+  color: #fff;
+}
+::-moz-selection {
+  background-color:#05c4e6;
+  color: #fff;
+}
+:root {
+  --color-icono: #4715cf;
+  --color-degradado: #0e0e0f;
+}
+
+a:hover {
+  color: #d14646;
+}
+
+a,
+.theme-color,
+.mm-column li.mm-header > a,
+.mm-column li:not(.mm-header) a:hover,
+.btn-t-white:hover,
+.btn-white {
+  color:var(--color-icono);
+}
+
+.theme-bg {
+  background-image: linear-gradient(to right, var(--color-icono), var(--color-degradado));
+}
+
+.theme-bg2 {
+  background-image: linear-gradient(to right, #0e0b30, #000000);
+}
+.theme-lite {
+  background-image: linear-gradient(to right, #e6cdb1, #f5edf0);
+}
+.theme-dark {
+  background-image: linear-gradient(to right, #0e0b30, #000000);
+}
+.theme-ok {
+  background-image: linear-gradient(to right, #37a55c, #273027);
+}
+
+.theme-off {
+  background-image: linear-gradient(to right, #e05454, #2b2425);
+}
+
+.btn-theme:hover{
+  background-image: linear-gradient(to right, #77aee6, #0575E6);
+}
+
+.price-table-01.active,
+.border-color {
+  /* border-color:var(--color-icono), !important; */
+} 
+
+.theme-color-g {
+  background: linear-gradient(to right, #0575E6, #0575E6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-enviar,.btn-theme{
+  /* background:#fff0f6; */
+  border: 1px solid var(--color-icono);
+  color:var(--color-icono);
+  /* border-radius: 25px; */
+}
+.price-table-01{
+  border: 2px solid var(--color-icono);
+  border-bottom: 5px solid var(--color-icono);
+  border-top: 5px solid var(--color-icono);
+} 
+.section-title-01 h2 {
+ 
+  color: hsl(0deg 0% 100%);
+  background-color: var(--color-icono);
+  
+}

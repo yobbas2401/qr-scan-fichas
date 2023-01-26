@@ -28,6 +28,23 @@
   <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
 <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
 <script src="d3.v3.min.js"></script>
+<style>
+.btn-qr{
+  font-size: small;
+  padding: inherit;
+ /* text-transform: capitalize;*/
+ border-radius: 20px;
+ box-shadow: 0px 0px 15px rgba(255, 254, 254, 0.637);
+ width: 40%;
+}
+
+.info-qr {
+    font: menu;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: -webkit-center;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target="#navbar" data-offset="98">
   <div id="loading">
@@ -47,7 +64,7 @@
          </button>
          <div class="collapse navbar-collapse justify-content-end" id="navbar">
            <ul class="navbar-nav ml-auto align-items-center">
-             <li><a class="nav-link" href="login.html">Ingresar otra ficha</a></li>
+             <li><a class="nav-link" href="login.html">Ingresar por ficha</a></li>
              <li><a class="nav-link" href="#contact">Contacto</a></li>
            </ul>
          </div>
@@ -61,9 +78,15 @@
        <div class="container">
          <div class="row align-items-center justify-content-center p-30px-tb sm-p-60px-b">
            <div class="col-lg-5 md-p-30px-tb">
-             <div class="card border-dark mb-3" style="margin-top: 30px;">
-              <div class="card-header"style="background: #000000ad;"><h5 class="card-title" style="font-size: 15px;"> <i class="bi-qr-code-scan"></i> Escanea el QR para ingresar</h5>
-                </div>
+            <div class="card border-dark mb-3" style="margin-top: 30px;">
+              <div class="card-header"style="background: #000000ad;">
+                <h5 class="card-title" style="font-size: 15px;">
+                <i class="bi-qr-code-scan"></i>
+                Escanea el QR para ingresar</h5>
+              </div>
+              <div class="card-title" style="color:aliceblue;" ><p class="info-qr">para conectarse a internet por codigo qr escanee el codigo qr impreso en su ficha, debe permitir el uso de la camara,
+                si desea regresar a la pagina de inicio de sesion e ingresar su ficha manualmente de click en volver a ficha.</p> 
+              </div>
               <div class="card-body">
                 <center>
                   <div id="main">
@@ -79,26 +102,25 @@
                             <div class="angle"></div>
                       </div>
                       
-                      <div class="container">
-                        <div class="col" style="top: 14px ;">
-                          <div class="btn btn-success" id="reload" onclick="location.reload();">
-                            <i class="bi bi-camera-fill">  </i> Cambiar camara
-                          </div>
-                        </div>
-                        <div class="col" style="top: 14px ;">
-                          <div class="btn btn-success" id="reload" onclick="location.reload();">
-                            <i class="bi bi-camera-fill">  </i> Volver a ficha
-                          </div>
-                        </div>
-                      </div>
+                      
                     
                     </div>
                   </div>
                 </center>
               </div>
-          </div>
+              <div class="container">
+                <div class="row justify-content-around" style="margin-bottom: 10px;" >
+                  <div class="col-4" style="display:contents;">
+                    <button type="button" class="btn btn-warning btn-sm btn-qr" id="reload" onclick="location.reload();">cambiar<br>camara</button>
+                  </div>
+                  <div class="col-4" style="display:contents;">
+                    <button type="button" class="btn btn-warning btn-sm btn-qr">Volver<br>a Ficha</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           <canvas  style="display: none; width:800 px; height: 600px;" id="qr-canvas" width="800" height="600"></canvas>
-    <script type="text/javascript">load();</script>
+          <script type="text/javascript">load();</script>
                  
                  <div class="card border-dark mb-3">
                    <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  PRECIOS</h5></div>

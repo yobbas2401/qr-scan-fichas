@@ -37,6 +37,17 @@
  box-shadow: 0px 0px 15px rgba(255, 254, 254, 0.637);
  width: 40%;
 }
+.foter{
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+  z-index: 1;
+
+}
 
 .info-qr {
     font: menu;
@@ -121,50 +132,7 @@
             </div>
           <canvas  style="display: none; width:800 px; height: 600px;" id="qr-canvas" width="800" height="600"></canvas>
           <script type="text/javascript">load();</script>
-                 
-                 <div class="card border-dark mb-3">
-                   <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  PRECIOS</h5></div>
-                   <div class="card-body"style="padding: 1px;">
-                     <table class="table" id="paketwifi">
-                 
-                       <thead class="table-dark">
-                       <tr>
-                         <th scope="col">Ficha</th>
-                         <th scope="col">Tiempo</th>
-                         <th scope="col">Precio</th>
-                       </tr>
-                     </thead>
-                     <tbody class="tablebody">
-                       <script type="text/javascript" charset="utf-8">
-                         d3.text("paket-wifi.csv", function(data) {
-                             var parsedCSV = d3.csv.parseRows(data);
-             
-                             var container = d3.select("tbody.tablebody")
-             
-                                 .selectAll("tr")
-                                     .data(parsedCSV).enter()
-                                     .append("tr")
-             
-                                 .selectAll("td")
-                                     .data(function(d) { return d; }).enter()
-                                     .append("td")
-                                     .text(function(d) { return d; });
-                         });
-                   </script>
-                   </tbody>
-                   </table>
-         
-                   </div>
-         
-                 </div>
                
-                 <div class="card border-dark mb-3">
-                   <div class="card-header" style="background: #000000ad;"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  PUNTO DE VENTA</h5>
-                     </div>
-                   <div class="card-body" style="padding: 3px;">
-                     <p class="card-text"style="color: aliceblue; font-family: monospace;font-weight: 900;">En el domicilio de la señora Yolanda Reyes Miguel</p>
-                   </div>
-                 </div>
            </div> 
            <div class="col-lg-7 text-center p-50px-l">
              <img src="static\img\home-banner-7.svg" title="" alt="">
@@ -172,110 +140,17 @@
          </div> 
        </div>
      </section>
-   
-   <section id="contact" class="section">
-     <div class="container">
-       <div class="row m-45px-b sm-m-25px-b">
-         <div class="col-lg-5 col-md-10">
-           <div class="section-title-01">
-             <h2 class="dark-color font-alt">Contacto</h2>
-           </div>
-         </div>
-       </div>
-   
-       <div class="row justify-content-center">
-         <div class="col-lg-8 md-m-30px-b">
-           <div class="contact-form">
-             <h4 class="dark-color font-alt m-30px-b">Para mas información envíanos un mensaje</h4>
-             <form id="contactform" class="contactform" method="post">
-               <div class="row">
-                 <div class="col-md-6">
-                   <div class="form-group">
-                     <input id="name" name="name" type="text" placeholder="Nombre" class="form-control1"
-                       required="">
-                     <span class="input-focus-effect theme-bg"></span>
-                   </div>
-                 </div>
-                 <div class="col-md-6">
-                   <div class="form-group">
-                     <input id="email" type="email" placeholder="Telefono" name="phone" class="form-control1"
-                       required="">
-                     <span class="input-focus-effect theme-bg"></span>
-                   </div>
-                 </div>
-                 <div class="col-md-12">
-                   <div class="form-group">
-                     <textarea id="message" placeholder="Hola.. estoy interesado en uno de sus servicios..."
-                       name="message" class="form-control1" required=""></textarea>
-                     <span class="input-focus-effect theme-bg"></span>
-                   </div>
-                 </div>
-                 <div class="col-md-12">
-                   <div class="send">
-                     <button id="sendbttn" class="btn btn-theme" type="submit" name="send"> Enviar Mensaje </button>
-                   </div>
-                   <span class="output_message"></span>
-                 </div>
-               </div>
-             </form>
-           </div>
-         </div>
-         <div class="col-lg-4">
-           <div class="contact-info">
-             <i class="theme-color bi bi-geo-alt-fill"></i>
-             <h6 class="dark-color font-alt" id="ventafichas"> Centro de servicio y venta de fichas</h6>
-             <p>A un lado de la cantina de karina, en el domicilio de la sra Yolanda</p>
-           </div>
-           <div class="contact-info">
-             <i class="theme-color bi bi-whatsapp"></i>
-             <h6 class="dark-color font-alt">Whatsapp</h6>
-             <p>9211987403 y 9514487509</p>
-           </div>
-           <div class="contact-info">
-             <i class="theme-color bi bi-envelope-at-fill"></i>
-             <h6 class="dark-color font-alt">Correo Electronico</h6>
-             <p>proyectos2018mecatronica@gmail.com</p>
-           </div>
-         </div>
-       </div>
-   
-   
-     </div>
-     <script>
-   
-       var formulariowtsp = document.getElementById('contactform');
-     
-       var sendbttn = document.querySelector('#sendbttn');
-     
-     
-     
-       sendbttn.addEventListener('click', EnviarMensaje)
-     
-       function EnviarMensaje() {
-     
-     
-         let name = document.querySelector('#name').value;
-         let mensaje = document.querySelector('#message').value;
-     
-         let url = "https://api.whatsapp.com/send?phone=529211987403&text=Nombre: %0A" + name + "%0A%0AMensaje: %0A" + mensaje + "%0A";
-         window.open(url);
-     
-       }
-     
-     </script>
-   </section>
+
 <!-- HASTA AQUI TERMINA LAS SECCIONES-->
 
 
    </main>
-   <footer class="footer footer-dark">
-     <div class="footer-copy">
+   <footer class="foter footer footer-dark">
        <div class="row">
          <div class="col-12">
-           <p>All © GeovaniV.V</p>
+           <p>All © WIFI SAN JUAN DEL RIO</p>
          </div>
        </div> 
-     </div>
    </footer>
    
    <script src="static\js\jquery-3.2.1.min.js"></script>
@@ -288,26 +163,12 @@
    <script src="static\js\jquery.parallax-scroll.js"></script>
    <script src="static\js\custom.js"></script>
 
-   $(if chap-id)
-   <script type="text/javascript" src="md5.js"></script>
-   <script type="text/javascript">
-       $('#loginForm').submit(function () {
-           var password = $('#inputPassword');
-           password.val(hexMD5('$(chap-id)' + password.val() + '$(chap-challenge)'));
-       });
-   </script>
-   $(endif)
+  
    <script>
      $("#menu-toggle").click(function (e) {
          e.preventDefault();
      $("#wrapper").toggleClass("toggled");
      });
    </script>
-   <script type="text/javascript">
-   <!--
-     document.loginForm.username.focus();
-   -->
-   </script>
-
- </body>
+    </body>
 </html>

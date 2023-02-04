@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <title>Escanea tu ficha</title>
-  <link href="plugin/bootstrap.min.css" rel="stylesheet">
-  <link href="plugin/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <script src="plugin/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="js/llqrcode.js"></script>
-  <script type="text/javascript" src="js/webqr1.js"></script>
    <!-- Custom styles for this template -->
   
   <link href="css/styles.css" rel="stylesheet" />
@@ -19,6 +14,9 @@
   <link href="static\css\style.css" rel="stylesheet">
   <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
   <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-qrcode-reader/dist/VueQrcodeReader.umd.min.js"></script>
+
 <style>
 .btn-qr{
   font-size: small;
@@ -87,25 +85,36 @@
                 si desea regresar a la pagina de inicio de sesion e ingresar su ficha manualmente de click en volver a ficha.</p> 
               </div>
               <div class="card-body">
-                <center>
-                  <div id="main">
-                    <div class="qr-scanner"id="mainbody" style="display: inline;">
-                      
-                      <div class="camera" id="outdiv" >
-                        <video id="v" autoplay=""></video>
-                      </div>
-                      
-                      <div class="box">
-                            <div class="line"></div>
-                            
-                            <div class="angle"></div>
-                      </div>
-                      
-                      
-                    
-                    </div>
+                <div class="qr-scanner"id="mainbody" style="display: inline;">
+                  <div id="app">
+                    <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
                   </div>
-                </center>
+
+                  <div class="box">
+                    <div class="line"></div>
+                    <div class="angle"></div>
+                  </div>
+                </div>
+                  <!-- Project -->
+                  <script>
+                    
+                    new Vue({
+                  el: '#app',
+                
+                  methods: {
+                    onDecode(url) {
+                      window.location.href = url
+                    },
+                
+                    onInit(promise) {
+                      promise
+                        .then(console.log)
+                        .catch(console.error)
+                    }
+                  }
+                })
+                
+                  </script>
               </div>
               <div class="container">
                 <div class="row justify-content-around" style="margin-bottom: 10px;" >
@@ -118,9 +127,7 @@
                 </div>
               </div>
             </div>
-          <canvas  style="display: none; width:800 px; height: 600px;" id="qr-canvas" width="800" height="600"></canvas>
           <script type="text/javascript">load();</script>
-               
            </div> 
            <div class="col-lg-7 text-center p-50px-l">
              <img src="static\img\home-banner-7.svg" title="" alt="">

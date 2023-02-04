@@ -12,7 +12,6 @@
   <link href="css/videostyle.css" rel="stylesheet" />
   <link href="static\plugin\bootstrap\css\bootstrap.min.css" rel="stylesheet">
   <link href="static\css\style.css" rel="stylesheet">
-  <link href="css\qrmarker.css" rel="stylesheet">
   <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
   <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
   <script src="js\vue.js"></script>
@@ -86,17 +85,10 @@
                 si desea regresar a la pagina de inicio de sesion e ingresar su ficha manualmente de click en volver a ficha.</p> 
               </div>
               <div class="card-body">
-                <div class="scanner-content">
+            
                   <div id="app">
                     <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
                   </div>
-                  <div class="qr-preview">
-                  <div id="reader"></div>
-                  </div>
-                  <div class="scanner-bar"></div>
-                </div>
-            
-                  
                 
                   <!-- Project -->
                   <script>

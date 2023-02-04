@@ -15,7 +15,7 @@
   <link href="static\css\color\default.css" rel="stylesheet" id="color_theme">
   <link href="static\plugin\bootstrap\bootstrap-icons.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-qrcode-reader/dist/VueQrcodeReader.umd.min.js"></script>
+  <script src="https://unpkg.com/vue-qrcode-reader/dist/VueQrcodeReader.umd.min.js"></script>
 
 <style>
 .btn-qr{
@@ -85,16 +85,11 @@
                 si desea regresar a la pagina de inicio de sesion e ingresar su ficha manualmente de click en volver a ficha.</p> 
               </div>
               <div class="card-body">
-                <div class="qr-scanner"id="mainbody" style="display: inline;">
+            
                   <div id="app">
                     <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
                   </div>
-
-                  <div class="box">
-                    <div class="line"></div>
-                    <div class="angle"></div>
-                  </div>
-                </div>
+                
                   <!-- Project -->
                   <script>
                     
@@ -127,7 +122,6 @@
                 </div>
               </div>
             </div>
-          <script type="text/javascript">load();</script>
            </div> 
            <div class="col-lg-7 text-center p-50px-l">
              <img src="static\img\home-banner-7.svg" title="" alt="">
@@ -153,5 +147,5 @@
    <script src="static\plugin\bootstrap\js\bootstrap.js"></script>
    <script src="static\plugin\particles\particles.min.js"></script>
    <script src="static\plugin\particles\particles-app.js"></script>
-    </body>
+  </body>
 </html>
